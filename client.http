@@ -1,0 +1,30 @@
+POST http://localhost:8010/product
+
+{
+    "id": 1,
+    "name": "hello",
+    "price": 100500
+}
+
+###
+
+GET http://localhost:8010/products
+
+###
+
+GET http://localhost:8010/product/1
+
+###
+
+PUT http://localhost:8010/product
+
+{
+    "id": 1,
+    "name": "hello",
+    "price": 100900
+}
+
+
+###
+
+DELETE http://localhost:8010/products
