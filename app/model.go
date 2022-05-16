@@ -4,6 +4,13 @@ import (
 	"database/sql"
 )
 
+type user struct {
+	ID      int    `json:"id"`
+	Name    string `json:"name"`
+	City    string `json:"city"`
+	Zipcode string `json:"zipcode"`
+}
+
 type product struct {
 	ID    int     `json:"id"`
 	Name  string  `json:"name"`
@@ -63,4 +70,41 @@ func getProducts(db *sql.DB, start, count int) ([]product, error) {
 	}
 
 	return products, nil
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+
+func (p *user) createUser(db *sql.DB) error {
+	err := db.QueryRow(
+		"INSERT INTO users(name, city, zipcode) VALUES($1, $2, $3) RETURNING id",
+		p.Name, p.City, p.Zipcode).Scan(&p.ID)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func getUsers(db *sql.DB) ([]user, error) {
+	rows, err := db.Query(
+		"SELECT id, name, city, zipcode FROM users")
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+	users := []user{}
+
+	for rows.Next() {
+		var u user
+		if err := rows.Scan(&u.ID, &u.Name, &u.City, &u.Zipcode); err != nil {
+			return nil, err
+		}
+		users = append(users, u)
+	}
+
+	return users, nil
 }

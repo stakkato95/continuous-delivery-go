@@ -18,5 +18,7 @@ CREATE TABLE users
     name TEXT NOT NULL,
     city TEXT NOT NULL,
     zipcode TEXT NOT NULL,
-    CONSTRAINT products_pkey PRIMARY KEY (id)
+    CONSTRAINT user_pkey PRIMARY KEY (id)
 );
+
+-- SELECT * FROM users;

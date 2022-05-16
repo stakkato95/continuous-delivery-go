@@ -1,7 +1,6 @@
 POST http://localhost:8010/product
 
 {
-    "id": 1,
     "name": "hello",
     "price": 100500
 }
@@ -28,3 +27,17 @@ PUT http://localhost:8010/product
 ###
 
 DELETE http://localhost:8010/products
+
+###
+
+POST http://localhost:8010/user
+
+{
+    "name": "hello",
+    "city": "hagenberg",
+    "zipcode": "4232"
+}
+
+###
+
+GET http://localhost:8010/users
