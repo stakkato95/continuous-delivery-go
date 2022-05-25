@@ -24,14 +24,14 @@ clear:
 	rm main.exe
 .PHONY:clear
 
-# # docker
-# docker-build-image:
-# 	docker build -t stakkato95/lambda-ingress:latest . -f Dockerfile
-# .PHONY:docker-build-image
+# docker
+docker-build-image:
+	docker build -t stakkato95/lambda-ingress:latest . -f Dockerfile
+.PHONY:docker-build-image
 
-# docker-push-image: docker-build-image
-# 	docker push stakkato95/lambda-ingress:latest
-# .PHONY:docker-push-image
+docker-push-image: docker-build-image
+	docker push stakkato95/lambda-ingress:latest
+.PHONY:docker-push-image
 
 # docker-run-tmp-container:
 # 	docker run --rm -p 8080:8080 -d stakkato95/lambda-ingress
