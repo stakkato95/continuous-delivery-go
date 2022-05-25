@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/stakkato95/continuous-delivery-go/app"
@@ -13,5 +14,6 @@ func main() {
 		os.Getenv("APP_DB_PASSWORD"),
 		os.Getenv("APP_DB_NAME"))
 
+	fmt.Println("test change")
 	a.Run(":8010")
 }
