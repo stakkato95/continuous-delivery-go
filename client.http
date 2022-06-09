@@ -1,4 +1,4 @@
-POST http://localhost:8010/product
+POST http://localhost:{{port}}{{pathPrefix}}/product
 
 {
     "name": "hello",
@@ -7,15 +7,15 @@ POST http://localhost:8010/product
 
 ###
 
-GET http://localhost:8010/products
+GET http://localhost:{{port}}{{pathPrefix}}/products
 
 ###
 
-GET http://localhost:8010/product/1
+GET http://localhost:{{port}}{{pathPrefix}}/product/1
 
 ###
 
-PUT http://localhost:8010/product
+PUT http://localhost:{{port}}{{pathPrefix}}/product
 
 {
     "id": 1,
@@ -26,11 +26,11 @@ PUT http://localhost:8010/product
 
 ###
 
-DELETE http://localhost:8010/products
+DELETE http://localhost:{{port}}{{pathPrefix}}/products
 
 ###
 
-POST http://localhost:8010/user
+POST http://localhost:{{port}}{{pathPrefix}}/user
 
 {
     "name": "hello",
@@ -40,4 +40,4 @@ POST http://localhost:8010/user
 
 ###
 
-GET http://localhost:8010/users
+GET http://localhost:{{port}}{{pathPrefix}}/users

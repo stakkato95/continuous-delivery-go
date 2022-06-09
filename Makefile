@@ -16,7 +16,7 @@ build: test
 
 run-with-env: build
 	docker run --rm -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=test -p 5432:5432 -d postgres:latest
-	$$env:APP_DB_USERNAME='postgres'; $$env:APP_DB_PASSWORD='postgres'; $$env:APP_DB_NAME='test'; ./main
+	$$env:APP_DB_USERNAME='postgres'; $$env:APP_DB_PASSWORD='postgres'; $$env:APP_DB_NAME='test'; $$env:APP_DB_HOST='localhost'; ./main
 .PHONY:run-with-env
 
 # clear local dev

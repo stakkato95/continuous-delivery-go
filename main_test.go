@@ -20,7 +20,8 @@ func TestMain(m *testing.M) {
 	a.Initialize(
 		"postgres",
 		"postgres",
-		"test")
+		"test",
+		"localhost")
 	// a.Initialize(
 	// 	os.Getenv("APP_DB_USERNAME"),
 	// 	os.Getenv("APP_DB_PASSWORD"),
