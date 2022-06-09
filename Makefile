@@ -15,7 +15,7 @@ build: test
 .PHONY:build
 
 run-with-env: build
-	docker run --rm -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -d postgres:latest
+	docker run --rm -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=test -p 5432:5432 -d postgres:latest
 	$$env:APP_DB_USERNAME='postgres'; $$env:APP_DB_PASSWORD='postgres'; $$env:APP_DB_NAME='test'; ./main
 .PHONY:run-with-env
 
