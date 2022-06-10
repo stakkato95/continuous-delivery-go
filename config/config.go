@@ -11,7 +11,7 @@ type Config struct {
 
 var AppConfig Config
 
-func Init(config interface{}, empty interface{}) {
+func Init() {
 	viper.AddConfigPath("/config")
 	viper.SetConfigName("app")
 	viper.SetConfigType("env")
@@ -21,11 +21,12 @@ func Init(config interface{}, empty interface{}) {
 		logger.Panic("config not found")
 	}
 
-	if err := viper.Unmarshal(config); err != nil {
+	if err := viper.Unmarshal(&AppConfig); err != nil {
 		logger.Panic("config can not be read")
 	}
 
-	if config == empty {
+	empty := Config{}
+	if AppConfig == empty {
 		logger.Panic("config is emtpy")
 	}
 }

@@ -16,6 +16,7 @@ func main() {
 	fmt.Printf("APP_DB_NAME: %s\n", os.Getenv("APP_DB_NAME"))
 	fmt.Printf("APP_DB_HOST: %s\n", os.Getenv("APP_DB_HOST"))
 
+	config.Init()
 	fmt.Printf("APP_DB_HOST config: %s\n", config.AppConfig.PostgresService)
 
 	a.Initialize(
